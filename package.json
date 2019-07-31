@@ -1,0 +1,29 @@
+{
+  "name": "BYK-Service",
+  "version": "1.0.0",
+  "description": "BYK Garden Community Demo with USB connectivity",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron ."
+  },
+  "repository": "https://github.com/electron/electron-quick-start",
+  "keywords": [
+    "BYK",
+    "USB",
+    "Salesforce",
+    "service",
+    "community"
+  ],
+  "author": "GitHub",
+  "license": "CC0-1.0",
+  "devDependencies": {
+    "electron": "^5.0.7"
+  },
+  "dependencies": {
+    "electron-rebuild": "^1.8.5",
+    "electron-usb": "0.0.11",
+    "node-gyp": "^5.0.3",
+    "node-pre-gyp": "^0.13.0",
+    "usb": "^1.6.0"
+  }
+}
