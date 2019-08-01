@@ -2,6 +2,7 @@
 const {app, BrowserWindow, ipcMain} = require('electron')
 const path = require('path')
 const usb = require('usb')
+const COMMUNITY_URL = 'https://playground-2019-developer-edition.eu25.force.com/bow'
 
 // Keep a global reference of the window object, if you don't, the window will
 // be closed automatically when the JavaScript object is garbage collected.
@@ -23,7 +24,8 @@ function createWindow () {
   })
 
   // and load the index.html of the app.
-  mainWindow.loadURL('https://playground-2019-developer-edition.eu25.force.com/bow')
+const communityurl = 'https://playground-2019-developer-edition.eu25.force.com/bow'
+  mainWindow.loadURL(COMMUNITY_URL)
 
   console.log(usb.getDeviceList())
 
