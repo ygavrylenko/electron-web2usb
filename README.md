@@ -33,3 +33,5 @@ You can just pick approriate ids from output and check them on online databases 
 Alternatively Salesforce component will show you the real name of device using async function device.getStringDescriptor
 Set VENDOR_ID and PRODUCT_ID in preload.js (will be externalized in the next steps)
 
+## Set target community url
+Change COMMUNITY_URL in preload.js to access appropriate community
