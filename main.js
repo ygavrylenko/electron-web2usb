@@ -25,11 +25,13 @@ function createWindow () {
   // and load the index.html of the app.
   mainWindow.loadURL('https://playground-2019-developer-edition.eu25.force.com/bow')
 
+  console.log(usb.getDeviceList())
+
   ipcMain.on('getdevice', (event, vid, pid) => {
     console.log('mainjs - getdevice:' + vid + ' ' + pid) // prints "ping"
     console.log('Getting device object with VID/PID: ' + vid + ' ' + pid)
     let d = getDevice(vid,pid)
-    console.log(usb.getDeviceList())
+    //console.log(usb.getDeviceList())
     //console.log('Retrieved device :' + d.deviceDescriptor)    
     event.sender.send('replydevice',d)
   })

@@ -1,5 +1,10 @@
 const { ipcRenderer } = require('electron');
 
+//set values for usb vendor and product id
+//you can take check the value if you start 
+const VENDOR_ID = 1133
+const PRODUCT_ID = 2630
+
 // All of the Node.js APIs are available in the preload process.
 // It has the same sandbox as a Chrome extension.
 window.addEventListener('DOMContentLoaded', () => {
@@ -13,8 +18,9 @@ window.addEventListener('DOMContentLoaded', () => {
   }
 })
 
+//the next step to give the values maybe from Salesforce settings
 window.addEventListener('getdevice', function(){
-  ipcRenderer.send('getdevice', 1133, 2630);
+  ipcRenderer.send('getdevice', VENDOR_ID, PRODUCT_ID);
 });
 
 window.addEventListener('getdevicename', function(){
