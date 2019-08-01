@@ -34,4 +34,4 @@ Alternatively Salesforce component will show you the real name of device using a
 Set VENDOR_ID and PRODUCT_ID in preload.js (will be externalized in the next steps)
 
 ## Set target community url
-Change COMMUNITY_URL in preload.js to access appropriate community
+Change COMMUNITY_URL in main.js to access appropriate community
