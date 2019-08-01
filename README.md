@@ -1,18 +1,12 @@
-# electron-quick-start
+# electron-web2usb
 
-**Clone and run for a quick way to see Electron in action.**
+**Demo how to connect to USB devices from Electron app and communicate with Salesforce org.**
 
 This is a minimal Electron application based on the [Quick Start Guide](https://electronjs.org/docs/tutorial/quick-start) within the Electron documentation.
 
-**Use this app along with the [Electron API Demos](https://electronjs.org/#get-started) app for API code examples to help you get started.**
+This demo shows how to connect to USB devices from Electron app and communicate between the app and Salesforce Community.
 
-A basic Electron application needs just these files:
-
-- `package.json` - Points to the app's main file and lists its details and dependencies.
-- `main.js` - Starts the app and creates a browser window to render HTML. This is the app's **main process**.
-- `index.html` - A web page to render. This is the app's **renderer process**.
-
-You can learn more about each of these components within the [Quick Start Guide](https://electronjs.org/docs/tutorial/quick-start).
+## Don't forget to rebuild node-usb libraties for your electron version otherwise it won't work!
 
 ## To Use
 
@@ -20,26 +14,22 @@ To clone and run this repository you'll need [Git](https://git-scm.com) and [Nod
 
 ```bash
 # Clone this repository
-git clone https://github.com/electron/electron-quick-start
+git clone https://github.com/ygavrylenko/electron-web2usb.git
 # Go into the repository
 cd electron-quick-start
 # Install dependencies
 npm install
+# Rebuilding node-usb libraries for current electron version
+# Go to the usb folder of node-usb module
+cd node_modules/usb/
+#Run command to rebuild libraries
+../.bin/node-gyp rebuild --target=5.0.7 --dist-url=https://electronjs.org/headers;
 # Run the app
 npm start
 ```
+## Set target device vendor_id and product_id
+After executing npm start the app lists all available devices and shows the result in console (main.js) --> usb.getDeviceList()
+You can just pick approriate ids from output and check them on online databases like https://devicehunt.com/all-usb-vendors
+Alternatively Salesforce component will show you the real name of device using async function device.getStringDescriptor
+Set VENDOR_ID and PRODUCT_ID in preload.js (will be externalized in the next steps)
 
-Note: If you're using Linux Bash for Windows, [see this guide](https://www.howtogeek.com/261575/how-to-run-graphical-linux-desktop-applications-from-windows-10s-bash-shell/) or use `node` from the command prompt.
-
-## Resources for Learning Electron
-
-- [electronjs.org/docs](https://electronjs.org/docs) - all of Electron's documentation
-- [electronjs.org/community#boilerplates](https://electronjs.org/community#boilerplates) - sample starter apps created by the community
-- [electron/electron-quick-start](https://github.com/electron/electron-quick-start) - a very basic starter Electron app
-- [electron/simple-samples](https://github.com/electron/simple-samples) - small applications with ideas for taking them further
-- [electron/electron-api-demos](https://github.com/electron/electron-api-demos) - an Electron app that teaches you how to use Electron
-- [hokein/electron-sample-apps](https://github.com/hokein/electron-sample-apps) - small demo apps for the various Electron APIs
-
-## License
-
-[CC0 1.0 (Public Domain)](LICENSE.md)
